@@ -212,6 +212,10 @@ for file in "$THEMES_DIR"/*.tar.gz "$THEMES_DIR"/*.tar.xz; do
                 # Extract .tar.xz files
                 sudo tar -xf "$file" -C "$THEMES_DIR"
                 ;;
+            *.zip)
+                # Extract .tar.xz files
+                sudo unzip "$file" -C "$THEMES_DIR"
+                ;;
         esac
 
         # Determine the extracted folder name
@@ -245,7 +249,7 @@ for file in "$SOURCE_DIR"/*.tar.gz "$SOURCE_DIR"/*.tar.xz; do
         fi
         sudo mv /tmp/* "$TARGET_DIR"/
         
-        rm "$file"
+        sudo rm "$file"
     fi
 done
 echo "All operations completed successfully."
