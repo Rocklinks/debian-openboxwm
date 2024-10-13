@@ -3,7 +3,7 @@
 # Author: Rocklin K S
 # Date: 07/09/2024
 # This script autinstall my config
-# Version: v1
+# Version: v2
 ############################
 set -exo  pipefail
 
@@ -240,4 +240,8 @@ if [ ! -d "$TARGET_DIR" ]; then
 else
     echo "Directory $TARGET_DIR already exists."
 fi
+CURSOR_THEME="Oxygen Magenta"
+xfconf-query -c xsettings -p /Gtk/CursorThemeName -s "$CURSOR_THEME"
+xfconf-query -c xsettings -p /Gtk/CursorThemeSize -s 24
+echo "Cursor theme changed"
 echo "All operations completed successfully."
